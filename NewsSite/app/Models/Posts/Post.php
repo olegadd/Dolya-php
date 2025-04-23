@@ -4,6 +4,7 @@ namespace App\Models\Posts;
 
 use App\Models\Comments\Comment;
 use App\Models\Users\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
