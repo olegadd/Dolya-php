@@ -7,7 +7,7 @@ $name = 'олег';
 $surname = 'доля';
 $patronomyc = 'альбертович';
 
-echo mb_convert_case($surname, MB_CASE_TITLE, "UTF-8") . ' ' 
+echo mb_convert_case($surname, MB_CASE_TITLE, "UTF-8") . ' '
     . mb_strtoupper(mb_substr($name, 0, 1)) . '.'
     . mb_strtoupper(mb_substr($patronomyc, 0, 1)) . '.' . "<br>";
 
