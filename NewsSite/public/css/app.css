@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #e0e0e0;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button,
+.btn {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert-error {
+    color: #721c24;
+    font-size: 14px;
+    margin-top: 5px;
+}
