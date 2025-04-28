@@ -51,6 +51,12 @@ return [
     */
 
     'channels' => [
+        'changes' => [
+            'driver' => 'daily',
+            'path' => storage_path('logs/changes.log'),
+            'level' => env('LOG_LEVEL', 'info'),
+            'days' => env('LOG_DAILY_DAYS', 7),
+        ],
 
         'stack' => [
             'driver' => 'stack',

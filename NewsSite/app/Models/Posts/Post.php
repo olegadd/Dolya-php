@@ -6,6 +6,7 @@ use App\Models\Comments\Comment;
 use App\Models\Users\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 class Post extends Model
 {
@@ -16,6 +17,34 @@ class Post extends Model
         'title',
         'content'
     ];
+
+    protected static function booted(): void
+    {
+        static::created(function (Post $post) {
+            Log::channel('changes')->info('Пост создан', [
+                'id' => $post->id,
+                'title' => $post->title,
+                'user_id' => $post->user_id,
+            ]);
+        });
+
+        static::updated(function (Post $post) {
+            Log::channel('changes')->info('Пост обновлен', [
+                'id' => $post->id,
+                'title' => $post->title,
+                'user_id' => $post->user_id,
+                'changes' => $post->getChanges(),
+            ]);
+        });
+
+        static::deleted(function (Post $post) {
+            Log::channel('changes')->info('Пост удален', [
+                'id' => $post->id,
+                'title' => $post->title,
+                'user_id' => $post->user_id,
+            ]);
+        });
+    }
 
     public function user()
     {

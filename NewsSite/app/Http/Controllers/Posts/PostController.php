@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Posts;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Comments\StoreCommentRequest;
-use App\Http\Requests\Posts\StoreCommentRequest as PostsStoreCommentRequest;
+use App\Http\Requests\Posts\StoreCommentRequest;
 use App\Http\Requests\Posts\StorePostRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 use App\Models\Posts\Post;
@@ -63,11 +62,5 @@ class PostController extends Controller
     {
         $this->postService->delete($post);
         return redirect()->route('posts.index')->with('success', 'Пост удален успешно.');
-    }
-
-    public function storeComment(PostsStoreCommentRequest $request, Post $post): RedirectResponse
-    {
-        $this->commentService->store($request->validated(), Auth::id(), $post->id);
-        return redirect()->route('posts.show', $post)->with('success', 'Комментарий добавлен успешно.');
     }
 }
