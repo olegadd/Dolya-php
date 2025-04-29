@@ -6,7 +6,7 @@ use App\Models\Posts\Post;
 
 class PostService
 {
-    public function store(array $data, ?int $userId = null): Post
+    public function store(array $data, int $userId): Post
     {
         $data['user_id'] = $userId;
         $post = Post::create($data);

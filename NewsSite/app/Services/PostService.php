@@ -3,11 +3,17 @@
 namespace App\Services;
 
 use App\Models\Posts\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostService
 {
     public function store(array $data, ?int $userId = null): Post
     {
+        $userId = $userId ?? Auth::id();
+        if (!$userId) {
+            throw new \Exception('Пользователь не авторизован для создания поста.');
+        }
+
         $data['user_id'] = $userId;
         $post = Post::create($data);
 
