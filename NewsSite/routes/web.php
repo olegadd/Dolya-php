@@ -10,7 +10,7 @@ Route::resource('users', UserController::class);
 //Route::post('posts/{post}/comments', [PostController::class, 'storeComment'])->name('posts.comments.store');
 
 Route::group(['middleware' => ['auth', 'role:admin']], function () {
-    Route::resource('posts', PostController::class);  // Полный доступ
+    Route::resource('posts', PostController::class);
 });
 
 Route::group(['middleware' => ['auth', 'role:editor']], function () {

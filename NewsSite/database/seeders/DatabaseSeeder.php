@@ -7,6 +7,7 @@ use App\Models\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -35,5 +36,27 @@ class DatabaseSeeder extends Seeder
 
         $user = Role::create(['name' => 'user']);
         $user->givePermissionTo(['view-posts', 'add-comments']);
+
+        // Тестовые пользователи
+        $adminUser = User::create([
+            'name' => 'Admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('password')
+        ]);
+        $adminUser->assignRole('admin');
+
+        $editorUser = User::create([
+            'name' => 'Editor',
+            'email' => 'editor@example.com',
+            'password' => Hash::make('password')
+        ]);
+        $editorUser->assignRole('editor');
+
+        $regularUser = User::create([
+            'name' => 'User',
+            'email' => 'user@example.com',
+            'password' => Hash::make('password')
+        ]);
+        $regularUser->assignRole('user');
     }
 }
